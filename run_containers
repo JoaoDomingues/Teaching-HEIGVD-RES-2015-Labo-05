@@ -1,0 +1,28 @@
+#!/bin/bash
+docker run -it -d --name my-running-front my-front
+docker run -it -d --name my-running-back my-back
+
+ipfront=$(docker inspect my-running-front | grep -i ipa | cut -d ':' -f2 | cut -d '"' -f2)
+ipback=$(docker inspect my-running-back | grep -i ipa | cut -d ':' -f2 | cut -d '"' -f2)
+
+echo "IP adresse front : $ipfront"
+echo "IP adresse back  : $ipback"
+
+rm -f lb/files/my-httpd-vhosts.conf
+
+echo "<VirtualHost *:80>" >> lb/files/my-httpd-vhosts.conf
+echo "  ServerAdmin webmaster@www.res-lab.com" >> lb/files/my-httpd-vhosts.conf
+echo "  ServerName www.res-lab.com" >> lb/files/my-httpd-vhosts.conf
+
+echo "  ProxyPass /api/ http://$ipback" >> lb/files/my-httpd-vhosts.conf
+echo "  ProxyPassReverse /api/ http://$ipback" >> lb/files/my-httpd-vhosts.conf
+
+echo "  ProxyPass / http://$ipfront" >> lb/files/my-httpd-vhosts.conf
+echo "  ProxyPassReverse / http://$ipfront" >> lb/files/my-httpd-vhosts.conf
+
+echo "  ErrorLog \"logs/www.res-lab.com-error_log\"" >> lb/files/my-httpd-vhosts.conf
+echo "  CustomLog \"logs/www.res-lab.com-access_log\" common" >> lb/files/my-httpd-vhosts.conf
+echo "</VirtualHost>" >> lb/files/my-httpd-vhosts.conf
+
+docker build -t my-proxy lb/
+docker run -it -d --name my-running-proxy -p 80:80 my-proxy

@@ -5,4 +5,3 @@ COPY ./public-html/ /usr/local/apache2/htdocs/
 
 COPY ./files/my-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./files/my-httpd-vhosts.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf
-COPY ./files/my-proxy-html.conf /usr/local/apache2/conf/hextra/proxy-html.conf

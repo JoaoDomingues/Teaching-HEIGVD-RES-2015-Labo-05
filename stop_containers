@@ -1,0 +1,3 @@
+#!/bin/bash
+docker stop my-running-front my-running-back my-running-proxy
+docker rm my-running-front my-running-back my-running-proxy
