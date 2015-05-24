@@ -1,4 +1,5 @@
 From httpd:2.4
+
 RUN apt-get update && apt-get -y install vim
 
 COPY ./public-html/ /usr/local/apache2/htdocs/
