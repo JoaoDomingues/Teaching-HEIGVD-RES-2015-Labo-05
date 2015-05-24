@@ -1,4 +1,28 @@
 # RES: Web Infrastructure Lab
+##
+### Group members
+João Miguel Domingues Pedrosa
+
+Toni Dias
+
+Nicolas Kobel
+
+Marc Pellet
+
+Bryan Perroud
+
+### Members contribution
+## 
+
+**João Miguel Domingues Pedrosa** : Master Chief
+
+**Toni Dias** : 
+
+**Nicolas Kobel** : 
+
+**Marc Pellet** : 
+
+**Bryan Perroud** : 
 
 ### Objectives
 
