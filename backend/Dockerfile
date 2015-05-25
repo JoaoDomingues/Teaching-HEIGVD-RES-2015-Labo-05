@@ -11,4 +11,4 @@ RUN npm install express
 
 COPY files /randomiseur/
 
-CMD /randomiseur/demarreNoeud.sh
+CMD node /randomiseur/randNum.js -DFOREGROUND

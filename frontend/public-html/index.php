@@ -18,7 +18,7 @@ $(document).ready(function(){
    <body>		
 		<h1>Generer un nombre aléatoire</h1>
 		
-      Mon adresse ip: <?echo $_SERVER["REMOTE_ADDR"];?>
+      Adresse ip du serveur: <?echo $_SERVER["REMOTE_ADDR"];?>
       
 		<p>
 			<button>Cliquer pour avoir un nombre</button>
