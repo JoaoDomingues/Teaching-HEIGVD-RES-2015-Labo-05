@@ -14,10 +14,10 @@ decouvre.bind(protocol.PROTOCOL_PORT, function() {
 
 // appeler quand un nouveau message apparait
 decouvre.on('message', function(msg, source) {
-   // vérifie s'il connait la source
+   // vÃ©rifie s'il connait la source
    if(IPFront.indexOf(source.address) == -1 && IPBack.indexOf(source.address) == -1){
-   // vérifie si c'est un front end ou back end
-      if(msg == "je suis la"){
+   // vÃ©rifie si c'est un front end ou back end
+      if(msg == "frontend"){
          IPFront.push(source.address);
       }
       else{
