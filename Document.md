@@ -10,12 +10,12 @@ La première étape pour pouvoir tester notre infrastructure, et d'ajouter la li
 
     192.168.42.42 www.res-lab.com #l'adresse IP correspond à celle de l'environnement vagrant
 
-Ensuite, il faut faire un **vagrant ssh** pour pouvoir entrer dans l'environnement vagrant. 
+Ensuite, il faut faire un **vagrant up** puis **vagrant ssh** pour pouvoir entrer dans l'environnement vagrant. 
 Pour pouvoir lancé tout les containers, il y a des script bash qui lance toute l'infrastructure. 
 
-Le premier à lancer est **build\_containers** qui va construire les différents containers et ensuite c'est **run\_containers** pour les lancés (Note: ils sont lancé en arrière plan). Il **stop_containers** qui permet d'arrêter tout les containers lancé avec le script précédent.
+Le premier à lancer est **build\_containers** construisant les différents containers. Ensuite, on execute **run\_containers** pour les lancés (Note: ils sont lancé en arrière plan). Il y a **stop_containers** qui permet d'arrêter tout les containers lancé avec le script précédent.
 
-Actuellement, il n'y a pas de découverte dynamique, tout les containers lancés sont enregistré dans le **http-vhosts.conf** lors du **run\_containers** qui va enfait, crée le fichier necessaire build le container pour le proxy / balancer et le démarrer tout de suite après.
+Actuellement, il n'y a pas de découverte dynamique, tout les containers lancés sont enregistré dans le **http-vhosts.conf** lors du **run\_containers** qui va enfait créer le fichier necessaire, build le container pour le proxy / balancer et le démarrer tout de suite après.
 Le script lance 1 container pour le proxy / balancer, 2 pour le frontend et 2 pour le backend.
 
 ## Test du bon fonctionnement
