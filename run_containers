@@ -24,7 +24,7 @@ echo "      BalancerMember http://$ipback2:80 " >> lb/files/my-httpd-vhosts.conf
 cat original/my-httpd-vhosts-milieux.conf >> lb/files/my-httpd-vhosts.conf
 
 echo "      BalancerMember http://$ipfront1:80 " >> lb/files/my-httpd-vhosts.conf
-echo "      BalancerMember http://$ipfront1:80 " >> lb/files/my-httpd-vhosts.conf
+echo "      BalancerMember http://$ipfront2:80 " >> lb/files/my-httpd-vhosts.conf
 
 cat original/my-httpd-vhosts-fin.conf >> lb/files/my-httpd-vhosts.conf
 

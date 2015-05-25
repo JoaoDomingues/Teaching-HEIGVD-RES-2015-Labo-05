@@ -15,17 +15,21 @@ Pour pouvoir lancé tout les containers, il y a des script bash qui lance toute 
 
 Le premier à lancer est **build\_containers** qui va construire les différents containers et ensuite c'est **run\_containers** pour les lancés (Note: ils sont lancé en arrière plan). Il **stop_containers** qui permet d'arrêter tout les containers lancé avec le script précédent.
 
-Actuellement, il n'y a que le reverse proxy qui marche, les scripts vont donc lancé trois containers : le serveur en reverse-proxy et 2 qui générent une page en html.
+Actuellement, il n'y a pas de découverte dynamique, tout les containers lancés sont enregistré dans le **http-vhosts.conf** lors du **run\_containers** qui va enfait, crée le fichier necessaire build le container pour le proxy / balancer et le démarrer tout de suite après.
+Le script lance 1 container pour le proxy / balancer, 2 pour le frontend et 2 pour le backend.
 
 ## Test du bon fonctionnement
 
-Pour pouvoir observer si tout marche comme il faut, ouvrez une page internet avec votre navigateur à l'adresse **www.res-lab.com** et vous devriez observer ceci:
+Pour pouvoir observer si tout marche comme il faut, ouvrez une page internet avec votre 
+navigateur à l'adresse **www.res-lab.com** et vous devriez observer ceci:
+
+[![](images_document/front_start.png)](images_document/front_start.png)
+
+Si vous appuyer sur le bouton, un nombre aléatoire devrais apparaitre à chaque nouvelle appuye.
 
 [![](images_document/front.png)](images_document/front.png)
 
-Et si vous rajouter **/api/** vous devriez voir ceci:
 
-[![](images_document/back.png)](images_document/back.png)
 
 Auteurs: 
 
