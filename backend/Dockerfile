@@ -2,15 +2,10 @@ FROM node
 
 RUN npm install express
 
-RUN apt-get update --fix-missing
-RUN apt-get install npm -y
+RUN apt-get update 
 RUN npm install -g pm2@0.12.9
-RUN apt-get install nano -y
 
 COPY files /randomiseur/
 
-CMD node /randomiseur/randNum.js -DFOREGROUND
-
-#CMD pm2 start /randomiseur/randNum.js
-#CMD pm2 start /randomiseur/hearthbeat.js
-#CMD pm2 monit
+RUN chmod 777 /randomiseur/start.sh
+ENTRYPOINT /randomiseur/start.sh
