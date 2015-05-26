@@ -11,6 +11,6 @@ COPY files /randomiseur/
 
 CMD node /randomiseur/randNum.js -DFOREGROUND
 
-#CMD pm2 start /app/randNum.js
-#CMD pm2 start /app/hearthbeat.js
+#CMD pm2 start /randomiseur/randNum.js
+#CMD pm2 start /randomiseur/hearthbeat.js
 #CMD pm2 monit
