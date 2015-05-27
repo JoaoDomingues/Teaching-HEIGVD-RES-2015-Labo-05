@@ -38,4 +38,4 @@ Include conf/extra/httpd-vhosts.conf
 **scripts pour lancer les container**:
 RUN execute des taches
 COPY copie des fichiers locaux dans le container
-ENTRYPOINT execution au lancement
+CMD ["bash", "/app/start.sh"] execution au lancement
