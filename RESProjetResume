@@ -1,0 +1,41 @@
+RES Projet resume:
+
+**Parties du labo**
+*Fichiers*
+
+**backend**:
+*heartbeat* : toutes les x secondes s’annonce
+*protocol* : adresse ou faire le heartbeat
+*randNum* : generation du nombre aléatoire
+
+**frontend**:
+*heartbeat* : toutes les x secondes s’annonce
+*protocol* : adresse ou faire le heartbeat
+*index.html* : structure de la page html
+
+**loadbalencer**:
+*decouvreur.js* : permet de récupérer le fichier my-httpd-vhost.conf
+il va reprendre le début du fichier my-httpd-vhosts.conf
+écrire la liste des backend et frontend dans my-httpd-vhosts.conf
+écrire la fin du fichier my-httpd-vhosts.conf
+relance le serveur apache pour mettre a jour les routes
+*protocole.js* : adresse du multicast il faut écouter la dessus 
+*start.sh* : script qui démarre le serveur apache
+*my-httpd-vhosts.conf* : 
+contient la liste des frontend et backend
+*my-httpd.conf* :
+"decommenter"
+LoadModule lbmethod_byrequests_module modules/mod_lbmethod_byrequests.so
+	pour le LB
+LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
+	pour le serveur
+LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+	proxy balancer
+#Virtual hosts
+Include conf/extra/httpd-vhosts.conf
+	pour include un fichier httpd-vhosts.conf 
+
+**scripts pour lancer les container**:
+RUN execute des taches
+COPY copie des fichiers locaux dans le container
+ENTRYPOINT execution au lancement
