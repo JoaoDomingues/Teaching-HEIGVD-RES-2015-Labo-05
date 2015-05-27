@@ -2,10 +2,12 @@ FROM node
 
 RUN npm install express
 
+# installation de pm2
 RUN apt-get update 
 RUN npm install -g pm2@0.12.9
 
+#copie des fichiers d'aplication, hearthbeat et randNum
 COPY files /randomiseur/
 
-RUN chmod 777 /randomiseur/start.sh
-ENTRYPOINT /randomiseur/start.sh
+#lance le serveur et sont heartbeat
+CMD ["bash", "/randomiseur/start.sh"]
