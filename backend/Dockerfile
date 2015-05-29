@@ -1,3 +1,4 @@
+#Docker file de base tiré du thérmométre vue en cours
 FROM node
 
 RUN npm install express

@@ -1,3 +1,4 @@
+#Tiré du site https://registry.hub.docker.com/_/php/
 FROM php:5.6-apache
 
 # installation de node.js et de pm2

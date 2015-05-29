@@ -1,3 +1,10 @@
+// ce script, permet de faire la découverte dynamique,
+// il récupere les datagram envoié à une certaine adresse
+// multicast, vérifie si c'est des frontend ou backend, 
+// les ajoutes à une tableau et tout les x temps, il regarde
+// s'il y a un changement (apparition d'un frontend ou backend)
+// et refait la configuration du load balancer puis relance le serveur 
+// dans ce cas. (code de base repris du station.js vu en cours)
 
 var protocol = require('./protocol');
 
@@ -50,14 +57,14 @@ function miseAJourConf(){
          if(tableauFront.indexOf(tableauNouveauFront[i]) == -1){
             changement = true;
          }
-      }
-      
+      } 
       // vérifie si c'est toujours les même adresse pour les backend
       for(i=0; i < tableauBack.length && !changement; i++){
          if(tableauBack.indexOf(tableauNouveauBack[i]) == -1){
             changement = true;
          }
       }
+      //refait la configuration s'il y a eu un changement
       if(changement){
          tableauBack = tableauNouveauBack; 
          tableauFront = tableauNouveauFront;
@@ -68,6 +75,7 @@ function miseAJourConf(){
          var milieux=filesystem.readFileSync('/app/original/my-httpd-vhosts-milieux.conf', 'utf-8');
          var fin=filesystem.readFileSync('/app/original/my-httpd-vhosts-fin.conf', 'utf-8');
          
+         // met le début du fichier
          var configuration=debut+'\n';
          
          // met les backend trouvé
@@ -75,6 +83,7 @@ function miseAJourConf(){
             configuration += "BalancerMember http://" + tableauBack[i]+ ":80" + '\n';
          }
          
+         // met le milieux du fichier
          configuration += milieux;
          
          // met les front end trouvé

@@ -8,7 +8,9 @@
       <!--C'est ligne permettent de faire un requête ajax afin de récupere un valeur aléatoire dans le backend-->
       $(document).ready(function(){
           $("button").click(function(){
-              $.ajax({url: "http://www.res-lab.com/api/", success: function(result){
+              $.ajax(
+              {url: "http://www.res-lab.com/api/", 
+               success: function(result){
                   $("#number").html(result);
               }});
           });
