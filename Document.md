@@ -4,18 +4,22 @@
 
 Pour faire notre infrastructure, nous avons utlisé un docker (http) contenant déjà apache avec un fichier de configuration bien rempli pour le reverse proxy et le load balancer. Pour le frontend, nous en utilisons un avec PHP, nous permettent ainsi d'avoir une page en PHP. Le backend est fait en node.js.
 
+Pour le partage d'informations et de fichier nous avons utilié Slack
+
 ## Mise en place
 
 La première étape pour pouvoir tester notre infrastructure, et d'ajouter la ligne suivante dans le fichiers **hosts** de votre machine afin de pouvoir visualiser le résultat dans votre navigateur web:
 
-    192.168.42.42 www.res-lab.com #l'adresse IP correspond à celle de l'environnement vagrant
+	192.168.42.42 www.res-lab.com 
+    #l'adresse IP correspond à celle de l'environnement vagrant
 
 Ensuite, il faut faire un **vagrant up** puis **vagrant ssh** pour pouvoir entrer dans l'environnement vagrant. 
-Pour pouvoir lancé tout les containers, il y a des script bash qui lance toute l'infrastructure. 
+Pour pouvoir lancer tous les containers, il y a des scripts bash qui lancent toute l'infrastructure. 
 
-Le premier à lancer est **build\_containers** construisant les différents containers. Ensuite, on execute **run\_containers** pour les lancés (Note: ils sont lancé en arrière plan). Il y a **stop_containers** qui permet d'arrêter tout les containers lancé avec le script précédent.
+Le premier à lancer est **build\_images** construisant les différents containers. Puis **run_loadbalancer** pour lancer le loadbalancer.  Ensuite, on execute **run\_containers** pour les lancés (Note: ils sont lancé en arrière plan). Il y a **stop-All_containers** qui permet d'arrêter tout les containers lancé avec le script précédent.
 
-Actuellement, il n'y a pas de découverte dynamique, tout les containers lancés sont enregistré dans le **http-vhosts.conf** lors du **run\_containers** qui va enfait créer le fichier necessaire, build le container pour le proxy / balancer et le démarrer tout de suite après.
+Actuellement, il y a une découverte dynamique.
+
 Le script lance 1 container pour le proxy / balancer, 2 pour le frontend et 2 pour le backend.
 
 ## Test du bon fonctionnement
