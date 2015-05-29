@@ -20,7 +20,7 @@
    <body>		
 		<h1>Generer un nombre aléatoire</h1>
 		
-      Adresse ip du serveur: <?echo $_SERVER["REMOTE_ADDR"];?>
+      Adresse ip du serveur: <?echo $_SERVER["SERVER_NAME"];?>
       
 		<p>
 			<button>Cliquer pour avoir un nombre</button>

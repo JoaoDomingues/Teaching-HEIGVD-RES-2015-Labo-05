@@ -14,15 +14,15 @@ Bryan Perroud
 ### Members contribution
 ## 
 
-**João Miguel Domingues Pedrosa** : Master Chief
+**João Miguel Domingues Pedrosa** : Master Chief, Node.js (hearthbeat and discovery), Proxy, test
 
-**Toni Dias** : 
+**Toni Dias** : Documentation and Frontend
 
-**Nicolas Kobel** : 
+**Nicolas Kobel** : Backend and Test
 
-**Marc Pellet** : 
+**Marc Pellet** : Backend and search visual interface for docker
 
-**Bryan Perroud** : 
+**Bryan Perroud** : Proxy, Load Balancer
 
 ### Objectives
 
