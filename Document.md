@@ -46,6 +46,7 @@ Pour pouvoir observer si tout marche comme il faut, veuillez suivre cette marche
 
 Pour vérifier si un des serveur est bien en fonctionnel (proxy / balancer, frontend ou backend), il faut faire un telnet sur le port 80 à l'adresse du container:
 
+> Pour connaître l'adresse IP de votre container faite la commande suivante: docker inspect <nom du container> | grep -i ipadress
 > Attention: utiliser localhost pour le serveur proxy / balancer car le port est rediriger sur la machine vagrant
 
 	telnet <adresse ip> 80
@@ -90,7 +91,7 @@ Ensuite, lancez un backend et testez avec:
 	GET /api/ HTTP/1.0 CRLF
 	CRLF
 
-Un nombre aléatoire et un ID est vous est envoyer en JSON. 
+Un nombre aléatoire et un ID, vous est envoyer en JSON. 
 
 [![](images_document/content_back.png)](images_document/content_back.png)
 
