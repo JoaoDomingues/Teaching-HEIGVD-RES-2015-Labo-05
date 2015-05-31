@@ -51,7 +51,7 @@ Pour vérifier si un des serveur est bien en fonctionnel (proxy / balancer, fron
 
 	telnet <adresse ip> 80
 
-Normalement, on vous demande de faire une requête HTTP, taper ceci:
+Normalement, on vous demande de faire une requête HTTP, tapez ceci:
 	
 	GET / HTTP/1.0 CRLF
 	CRLF
